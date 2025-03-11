@@ -1,14 +1,11 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'node:22.14.0-alpine3.21' }
+    }
     stages {
-        stage('Build') {
+        stage('Test') {
             steps {
-                bat 'echo "Step 1: Initializing build process"'
-                bat 'echo "Step 2: Running pre-build checks"'
-                bat '''
-                    echo "Step 3: Compiling source code"
-                    echo "Step 4: Build completed successfully"
-                '''
+                sh 'node --eval "console.log(process.arch,process.platform)"'
             }
         }
     }

@@ -3,7 +3,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'set'
+                sh 'echo "Build Step"'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'echo "Test Step"'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'echo "Deploy Step"'
             }
         }
     }
